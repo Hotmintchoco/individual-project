@@ -16,14 +16,14 @@ public class MemberMenu {
 		
 		Outer:
 		while (true) {
-			System.out.println("í˜„ì¬ ë“±ë¡ëœ íšŒì›ìˆ˜ëŠ” " + mManager.memberCount + "ëª… ì…ë‹ˆë‹¤.");
-			System.out.println("1. ìƒˆ íšŒì› ë“±ë¡");
-			System.out.println("2. íšŒì› ì¡°íšŒ");
-			System.out.println("3. íšŒì› ì •ë³´ ìˆ˜ì •");
-			System.out.println("4. íšŒì› ì •ë³´ ì •ë ¬");
-			System.out.println("5. íšŒì› ì‚­ì œ");
-			System.out.println("6. ëª¨ë‘ ì¶œë ¥");
-			System.out.println("9. ëë‚´ê¸°");
+			System.out.println("ÇöÀç µî·ÏµÈ È¸¿ø¼ö´Â " + mManager.memberCount + "¸í ÀÔ´Ï´Ù.");
+			System.out.println("1. »õ È¸¿ø µî·Ï");
+			System.out.println("2. È¸¿ø Á¶È¸");
+			System.out.println("3. È¸¿ø Á¤º¸ ¼öÁ¤");
+			System.out.println("4. È¸¿ø Á¤º¸ Á¤·Ä");
+			System.out.println("5. È¸¿ø »èÁ¦");
+			System.out.println("6. ¸ğµÎ Ãâ·Â");
+			System.out.println("9. ³¡³»±â");
 			
 			int input = sc.nextInt();
 			
@@ -42,7 +42,7 @@ public class MemberMenu {
 			} else if (input == 6) {
 				mManager.printAllMember();
 			} else if (input == 9) {
-				System.out.print("ì •ë§ë¡œ ëë‚´ì‹œê² ìŠµë‹ˆê¹Œ? (y/n) : ");
+				System.out.print("Á¤¸»·Î ³¡³»½Ã°Ú½À´Ï±î? (y/n) : ");
 				
 				while(true) {
 					String endInput = sc.next();
@@ -50,27 +50,27 @@ public class MemberMenu {
 					if (endInput.equalsIgnoreCase("y")) {
 						break Outer;
 					} else if (endInput.equalsIgnoreCase("n")) {
-						System.out.println("ì‹œìŠ¤í…œì„ ì§„í–‰í•©ë‹ˆë‹¤.");
+						System.out.println("½Ã½ºÅÛÀ» ÁøÇàÇÕ´Ï´Ù.");
 						System.out.println();
 						break;
 					} else
-						System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.");
-				} // endë¬¸ while.
+						System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+				} // end¹® while.
 			}
 			
-		} // whileë¬¸ 
-	} //mainMenu ë©”ì„œë“œ.
+		} // while¹® 
+	} //mainMenu ¸Ş¼­µå.
 	
 	public int searchMenu(){
 		while (true) {
-			System.out.println("1. ì•„ì´ë””ë¡œ ê²€ìƒ‰");
-			System.out.println("2. ì´ë¦„ìœ¼ë¡œ ê²€ìƒ‰");
-			System.out.println("3. ì´ë©”ì¼ë¡œ ê²€ìƒ‰");
-			System.out.println("9. ì´ì „ ë©”ë‰´ë¡œ ê°€ê¸°");
+			System.out.println("1. ¾ÆÀÌµğ·Î °Ë»ö");
+			System.out.println("2. ÀÌ¸§À¸·Î °Ë»ö");
+			System.out.println("3. ÀÌ¸ŞÀÏ·Î °Ë»ö");
+			System.out.println("9. ÀÌÀü ¸Ş´º·Î °¡±â");
 			
 			int searchInput = sc.nextInt();
 			if (searchInput == 1) {
-				System.out.print("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+				System.out.print("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
 				String inputId = sc.next();
 				for (int i = 0; i < mManager.memberCount; i++) {
 					if(member[i].getId().equals(inputId)) {
@@ -80,7 +80,7 @@ public class MemberMenu {
 				return -1;
 			}
 			else if (searchInput == 2) {
-				System.out.print("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+				System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
 				String inputName = sc.nextLine();
 				for (int i = 0; i < mManager.memberCount; i++) {
 					if(member[i].getName().equals(inputName)) {
@@ -90,7 +90,7 @@ public class MemberMenu {
 				return -1;
 			}
 			else if (searchInput == 3) {
-				System.out.print("ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+				System.out.print("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
 				String inputemail = sc.nextLine();
 				for (int i = 0; i < mManager.memberCount; i++) {
 					if(member[i].getEmail().equals(inputemail)) {
@@ -100,7 +100,7 @@ public class MemberMenu {
 				return -1;
 			}
 			else if (searchInput == 9) {
-				System.out.println("ë©”ì¸ë©”ë‰´ë¡œ í™”ë©´ ì´ë™í•©ë‹ˆë‹¤.");
+				System.out.println("¸ŞÀÎ¸Ş´º·Î È­¸é ÀÌµ¿ÇÕ´Ï´Ù.");
 				break;
 			}
 		}
@@ -121,12 +121,12 @@ public class MemberMenu {
 	public void sortMenu(){
 		while (true) {
 			System.out.println();
-			System.out.println("1. ì•„ì´ë”” ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ ì¶œë ¥");
-			System.out.println("2. ì•„ì´ë”” ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ ì¶œë ¥");
-			System.out.println("3. ë‚˜ì´ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬ ì¶œë ¥");
-			System.out.println("4. ë‚˜ì´ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ ì¶œë ¥");
-			System.out.println("5. ì„±ë³„ ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬ ì¶œë ¥(ë‚¨ì—¬ìˆœ)");
-			System.out.println("9. ì´ì „ ë©”ë‰´ë¡œ ê°€ê¸°");
+			System.out.println("1. ¾ÆÀÌµğ ¿À¸§Â÷¼ø Á¤·Ä Ãâ·Â");
+			System.out.println("2. ¾ÆÀÌµğ ³»¸²Â÷¼ø Á¤·Ä Ãâ·Â");
+			System.out.println("3. ³ªÀÌ ¿À¸§Â÷¼ø Á¤·Ä Ãâ·Â");
+			System.out.println("4. ³ªÀÌ ³»¸²Â÷¼ø Á¤·Ä Ãâ·Â");
+			System.out.println("5. ¼ºº° ³»¸²Â÷¼ø Á¤·Ä Ãâ·Â(³²¿©¼ø)");
+			System.out.println("9. ÀÌÀü ¸Ş´º·Î °¡±â");
 			
 			int sortInput = sc.nextInt();
 			
@@ -161,7 +161,7 @@ public class MemberMenu {
 				}
 			}
 			else if (sortInput == 9) {
-				System.out.println("ë©”ì¸ë©”ë‰´ë¡œ í™”ë©´ ì´ë™í•©ë‹ˆë‹¤.");
+				System.out.println("¸ŞÀÎ¸Ş´º·Î È­¸é ÀÌµ¿ÇÕ´Ï´Ù.");
 				break;
 			}
 		}
@@ -169,45 +169,45 @@ public class MemberMenu {
 	
 	public void modifyMenu(){
 		while (true) {
-			System.out.println("1. ì•”í˜¸ ë³€ê²½");
-			System.out.println("2. ì´ë©”ì¼ ë³€ê²½");
-			System.out.println("3. ë‚˜ì´ ë³€ê²½");
-			System.out.println("9. ì´ì „ ë©”ë‰´ë¡œ ê°€ê¸°");
+			System.out.println("1. ¾ÏÈ£ º¯°æ");
+			System.out.println("2. ÀÌ¸ŞÀÏ º¯°æ");
+			System.out.println("3. ³ªÀÌ º¯°æ");
+			System.out.println("9. ÀÌÀü ¸Ş´º·Î °¡±â");
 			
 			int searchInput = sc.nextInt();
 			
 			if (searchInput == 9) {
-				System.out.println("ë©”ì¸ë©”ë‰´ë¡œ í™”ë©´ ì´ë™í•©ë‹ˆë‹¤.");
+				System.out.println("¸ŞÀÎ¸Ş´º·Î È­¸é ÀÌµ¿ÇÕ´Ï´Ù.");
 				break;
 			}
 			
-			System.out.print("ë³€ê²½í•  íšŒì›ì˜ ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+			System.out.print("º¯°æÇÒ È¸¿øÀÇ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
 			String inputId = sc.next();
 			if (searchInput == 1) {
 				int memberIndex = searchMenu(inputId);
 				if (0 <= memberIndex && memberIndex <= 10) {
-					System.out.println("ë³€ê²½í•  ì•”í˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+					System.out.println("º¯°æÇÒ ¾ÏÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
 					String inputPassword = sc.next();
 					member[memberIndex].setPassword(inputPassword);
-					System.out.println("íšŒì›ì˜ ì •ë³´ê°€ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.");
+					System.out.println("È¸¿øÀÇ Á¤º¸°¡ º¯°æµÇ¾ú½À´Ï´Ù.");
 				}
 			}
 			else if (searchInput == 2) {
 				int memberIndex = searchMenu(inputId);
 				if (0 <= memberIndex && memberIndex <= 10) {
-					System.out.println("ë³€ê²½í•  ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”.");
+					System.out.println("º¯°æÇÒ ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
 					String inputEmail = sc.next();
 					member[memberIndex].setEmail(inputEmail);
-					System.out.println("íšŒì›ì˜ ì •ë³´ê°€ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.");
+					System.out.println("È¸¿øÀÇ Á¤º¸°¡ º¯°æµÇ¾ú½À´Ï´Ù.");
 				}
 			}
 			else if (searchInput == 3) {
 				int memberIndex = searchMenu(inputId);
 				if (0 <= memberIndex && memberIndex <= 10) {
-					System.out.println("ë³€ê²½í•  ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+					System.out.println("º¯°æÇÒ ³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
 					int inputAge = sc.nextInt();
 					member[memberIndex].setAge(inputAge);
-					System.out.println("íšŒì›ì˜ ì •ë³´ê°€ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.");
+					System.out.println("È¸¿øÀÇ Á¤º¸°¡ º¯°æµÇ¾ú½À´Ï´Ù.");
 				}
 			}
 		}

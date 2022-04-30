@@ -13,20 +13,20 @@ public class MemberManager {
 	Member[] member = new Member[SIZE];
 	public int memberCount;
 	
+	Scanner sc = new Scanner(System.in);
+	
 	public Member memberInput() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("ì•„ì´ë””ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
-		String id = sc.nextLine();
-		System.out.println("ì´ë¦„ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
-		String name = sc.nextLine();
-		System.out.println("ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
-		String password = sc.nextLine();
-		System.out.println("ì´ë©”ì¼ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
-		String email = sc.nextLine();
-		System.out.println("ì„±ë³„ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.(ë‚¨ì„±ì€ M / ì—¬ì„±ì€ W)");
-		String inputGender = sc.nextLine();
-		System.out.println("ì—°ë ¹ì„ ìž…ë ¥í•´ì£¼ì„¸ìš”.");
+		System.out.println("¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		String id = sc.next();
+		System.out.println("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		String name = sc.next();
+		System.out.println("ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		String password = sc.next();
+		System.out.println("ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		String email = sc.next();
+		System.out.println("¼ºº°À» ÀÔ·ÂÇØÁÖ¼¼¿ä.(³²¼ºÀº M / ¿©¼ºÀº W)");
+		String inputGender = sc.next();
+		System.out.println("¿¬·ÉÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 		int age = sc.nextInt();
 		
 		char gender = inputGender.charAt(0);
@@ -35,7 +35,44 @@ public class MemberManager {
 		return member[memberCount];
 	}
 	public void deleteMember() {
+		int indexId;
 		
+		while (memberCount > 0) {
+			List<Member> memberArrList = new ArrayList<Member>(memberCount);
+			for (int i = 0; i < memberCount; i++) {
+				memberArrList.add(new Member(member[i]));
+			}
+			
+			System.out.println("»èÁ¦ÇÏ°íÀÚ ÇÏ´Â ¾ÆÀÌµð¸¦ ÀÔ·ÂÇÏ¼¼¿ä.(³ª°¡±â´Â 9¹ø) : ");
+			String inputId = sc.next();
+			
+			if (inputId.equals("9")) {
+				System.out.println("¸Þ´º·Î µ¹¾Æ°©´Ï´Ù.");
+				break;
+				
+			}
+			
+			for (int i = 0; i < memberCount; i++) {
+				if (member[i].getId().equals(inputId)) {
+					indexId = i;
+					System.out.println("¾ÆÀÌµðÀÇ ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+
+					String inputPassword = sc.next();
+					if (member[indexId].getPassword().equals(inputPassword)) {
+						memberArrList.remove(indexId);
+						member = memberArrList.toArray(new Member[memberArrList.size()]);
+						System.out.println("»èÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+						System.out.println();
+						memberCount--;
+						break;
+					} else {
+						System.out.println("Àß¸øµÈ ºñ¹Ð¹øÈ£ÀÔ´Ï´Ù.");
+					}
+				} else {
+					System.out.println("Á¸ÀçÇÏÁö ¾Ê´Â ¾ÆÀÌµðÀÔ´Ï´Ù.");
+				}
+			}
+		}
 	}
 	
 	public void printAllMember() {
@@ -44,11 +81,11 @@ public class MemberManager {
 	
 	public void printMember(int index) {
 		if (index == -1) {
-			System.out.println("íšŒì›ì •ë³´ê°€ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+			System.out.println("È¸¿øÁ¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
 		} else if (index == 100){
 			System.out.println();
 		} else {
-			System.out.println("íšŒì›ì˜ ë°°ì—´ì¸ë±ìŠ¤ëŠ” [" + index + "]ìž…ë‹ˆë‹¤.");
+			System.out.println("È¸¿øÀÇ ¹è¿­ÀÎµ¦½º´Â [" + index + "]ÀÔ´Ï´Ù.");
 		}
 	}
 	
