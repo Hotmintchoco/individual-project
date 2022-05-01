@@ -76,7 +76,10 @@ public class MemberManager {
 	}
 	
 	public void printAllMember() {
-		
+		for (int i = 0; i < member.length; i++) {
+			System.out.println(i+1 + "¹ø È¸¿ø:" + member[i].memberInfo());
+		}
+		System.out.println();
 	}
 	
 	public void printMember(int index) {

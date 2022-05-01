@@ -190,6 +190,8 @@ public class MemberMenu {
 					String inputPassword = sc.next();
 					member[memberIndex].setPassword(inputPassword);
 					System.out.println("회원의 정보가 변경되었습니다.");
+				} else {
+					System.out.println("존재하지 않는 아이디입니다.");
 				}
 			}
 			else if (searchInput == 2) {
@@ -199,6 +201,8 @@ public class MemberMenu {
 					String inputEmail = sc.next();
 					member[memberIndex].setEmail(inputEmail);
 					System.out.println("회원의 정보가 변경되었습니다.");
+				} else {
+					System.out.println("존재하지 않는 아이디입니다.");
 				}
 			}
 			else if (searchInput == 3) {
@@ -208,7 +212,11 @@ public class MemberMenu {
 					int inputAge = sc.nextInt();
 					member[memberIndex].setAge(inputAge);
 					System.out.println("회원의 정보가 변경되었습니다.");
+				} else {
+					System.out.println("존재하지 않는 아이디입니다.");
 				}
+			} else {
+				System.out.println("잘못된 입력입니다.");
 			}
 		}
 	}
